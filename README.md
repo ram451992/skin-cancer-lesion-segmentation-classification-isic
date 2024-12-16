@@ -24,7 +24,7 @@ This project aims to develop an end-to-end **skin disease recognition and classi
   - Models incorporating attention mechanisms significantly outperformed others.
   - The **Inception ResNet V2 with soft attention** achieved the highest performance.
 - **Accuracy**:
-  - **Multi-class classification**: Excels across eight disease categories.
+  - **Multi-class classification**: Excels across seven disease categories.
   - **Binary classification**: Achieved an accuracy of **89.60%** in identifying malignant lesions.
   
 ## Significance
@@ -32,3 +32,15 @@ This approach advances early diagnosis and clinical decision support by improvin
 
 ## Conclusion
 The **Inception ResNet V2 with soft attention** stands out as the most effective model for clinical application, excelling in both multi-class and binary classification tasks.
+
+---
+
+## Team 5:  Members
+- **Jaswanth Kranthi Boppana**  
+  Email: [jboppana@iu.edu](mailto:jboppana@iu.edu)
+- **Pranay Reddy Gundala**  
+  Email: [vgundala@iu.edu](mailto:vgundala@iu.edu)
+- **Ranvir Singh Virk**  
+  Email: [rsvirk@iu.edu](mailto:rsvirk@iu.edu)
+- **Venkata Ramakrishna Reddy Dwarampudi**  
+  Email: [vedwar@iu.edu](mailto:vedwar@iu.edu)
