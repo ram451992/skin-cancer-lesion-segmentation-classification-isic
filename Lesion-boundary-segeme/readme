@@ -1,0 +1,3 @@
+Lesion Boundary Segmentation. Where we detect the exact boundary of the lesion and create a binary mask for the boundary. 
+Later this boundary can be used to segment out the lesion from the image. To implement this we have used the ISIC 2018 data set consisting of 2500 random original skin lesion images along with its respective ground truth mask.
+Using this as the data set we have implemented a classic Unet Architecture  and a ResNet50  model which uses the pre-trained weight of imageNet to train and detect the lesion boundaries
