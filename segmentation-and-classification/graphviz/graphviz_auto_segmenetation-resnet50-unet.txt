@@ -1,0 +1,14 @@
+digraph ResNet50_UNet {
+    rankdir=TB;
+    node [shape=box, style=filled, color=lightblue];
+
+    input [label="Input"];
+    encoder [label="Encoder\n(ResNet50, Frozen)"];
+    decoder [label="Decoder\n(UpSampling + Conv2D)"];
+    output [label="Output\n(Conv2D, sigmoid)"];
+
+    input -> encoder;
+    encoder -> decoder [label="Encoder Output"];
+    encoder -> decoder [label="Skip Connections", style=dashed, color=red];
+    decoder -> output;
+}

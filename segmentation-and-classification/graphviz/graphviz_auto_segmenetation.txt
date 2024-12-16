@@ -1,0 +1,39 @@
+digraph AutoSegmentation {
+    rankdir=TB;
+    node [shape=box, style=filled, color=lightblue, fontname="Arial"];
+
+    subgraph cluster0 {
+        label="Annotation and Fine-tuning of SAM";
+        style=dotted;
+
+        Annotate [label="Manually annotate 290+ images\nusing Roboflow"];
+        Augment [label="Augment data\n(rotate, flip, etc.)"];
+        Dataset [label="Generate 800+ image dataset\nin COCO format"];
+        FineTune [label="Fine-tune SAM on dataset\nFreeze encoder, train mask decoder"];
+
+        Annotate -> Augment -> Dataset -> FineTune;
+    }
+
+    subgraph cluster1 {
+        label="Grounding DINO + SAM";
+        style=dotted;
+
+        GroundingDINO [label="Remove hair & use Grounding DINO\n to detect bounding boxes"];
+        RefineBoxes [label="Refine bounding boxes\n(based on size, aspect ratio, position)\nSelect largest box"];
+
+        GenerateMask [label="Fine-tuned SAM with bounding box to generate masks"];
+        RetainRegion [label="Select & Retain largest connected region"];
+        ExtendMask [label="Apply binary dilation, morphological closing, Gaussian blur"];
+        FinalMask [label="Generate Final Mask"]
+        GroundingDINO -> RefineBoxes -> GenerateMask -> RetainRegion -> ExtendMask -> FinalMask;
+    }
+
+    subgraph cluster2 {
+        label="Final Segmentation";
+        style=dotted;
+        
+        ApplyMask [label="Apply refined mask\nto original image dataset and\nextract the lesions into new dataset"];
+
+        FinalMask -> ApplyMask;
+    }
+}
