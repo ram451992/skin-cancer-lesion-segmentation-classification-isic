@@ -1,1 +1,3 @@
-
+we tried to perform the Lesion Attribute Detection.
+Where a DeepLabV3 model is trained using the data of 2500 images which have 5 ground truth feature masks. 
+The features that we are trying to check for are pigment network, negative network, streaks, milia-like cysts, globules.  
